@@ -15,8 +15,8 @@ import java.util.Collections;
 
 public class Game15 {
 
-    private JFrame myGame15Frame = new JFrame("NINAS SPEL");
-
+    //private JFrame myGame15Frame = new JFrame("NINAS SPEL");
+    public static JFrame myGame15Frame = new JFrame("NINAS SPEL");
 
     /*************   START PÅ PROBLEM  ***************************************
      * */
@@ -28,7 +28,8 @@ public class Game15 {
 
     public static JPanel informationPanel = new JPanel();
     //private JPanel informationPanel = new JPanel();
-    private JLabel gameOverLabel = new JLabel("Grattis, du vann!");
+    public static JLabel gameOverLabel = new JLabel("Grattis, du vann!");
+    //private JLabel gameOverLabel = new JLabel("Grattis, du vann!");
     private JButton newGameButton = new JButton("Nytt spel");
     private Boolean gameOver = false;
     public static ArrayList<JButton> myTiles = new ArrayList<>();
@@ -55,9 +56,7 @@ public class Game15 {
         informationPanel.setBackground(Color.WHITE);
         newGameButton.addActionListener(new Game15Controller.NewGameActionListener());
         newGameButton.setFont(new Font("Arial", Font.PLAIN, 20));
-        if(gameOver){
-            informationPanel.add(gameOverLabel);
-        }
+        gameOverLabel.setFont(new Font("Arial", Font.PLAIN, 20));
         informationPanel.add(newGameButton);
 
         JButton b1 = new JButton("1");

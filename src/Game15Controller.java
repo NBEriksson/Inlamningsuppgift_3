@@ -15,8 +15,19 @@ import java.util.Collections;
 public class Game15Controller {
 
     static class NewGameActionListener implements ActionListener {
+        /*public void actionPerformed(ActionEvent e) {
+            System.out.println("Nytt spel-knappen är tryckt");
+            new Game15();
+        }*/
+
+
+        //NINAS TEST
         public void actionPerformed(ActionEvent e) {
-            //System.out.println("Nytt spel-knappen är tryckt");
+            System.out.println("Nytt spel-knappen är tryckt");
+            //Game15.gamePanel.repaint();
+            //Game15.gamePanel.updateUI();
+            Game15.gamePanel.repaint();
+            //Game15.myGame15Frame.repaint();
             new Game15();
         }
     }
@@ -137,8 +148,7 @@ public class Game15Controller {
         swap(clickedIndex, indexToCheck);
 
         if(isSolved()){
-            System.out.println("GAME OVER!");
-            System.out.println("GAME OVER!");
+            Game15.informationPanel.add(Game15.gameOverLabel);
             Game15.informationPanel.updateUI();
         }
     }
@@ -151,10 +161,10 @@ public class Game15Controller {
         for (Integer i : indexToCheck) {
             if (Game15.myTiles.get(i).getText().equals("")) {//om tom ruta
                 emptyIndex = i;
-               // System.out.println("emptyIndex: " + emptyIndex);
+               //System.out.println("emptyIndex: " + emptyIndex);
+                Collections.swap(Game15.myTiles, clickedIndex, emptyIndex);
             }
         }
-        Collections.swap(Game15.myTiles, clickedIndex, emptyIndex);
 
         for(int i = 0; i < 16; i++){
             Game15.gamePanel.add(Game15.myTiles.get(i));
@@ -178,7 +188,7 @@ public class Game15Controller {
 
 
 
-    //HITTAT GRUNDEN PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU
+    //HITTAT PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU
     private static boolean isSolvable() {
         System.out.println("Inne i isSolvable()");
         int count = 0;
