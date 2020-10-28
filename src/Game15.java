@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -14,14 +12,16 @@ import java.util.Collections;
  * Copyright: MIT
  */
 
+
 public class Game15 {
-    // public class Game15 implements ActionListener {
+
     private JFrame myGame15Frame = new JFrame("NINAS SPEL");
     private JPanel gamePanel = new JPanel();
     private JPanel informationPanel = new JPanel();
     private JLabel gameOverLabel = new JLabel("Grattis, du vann!");
     private JButton newGameButton = new JButton("Nytt spel");
     private Boolean gameOver = false;
+    static ArrayList<JButton> myTiles = new ArrayList<>();
 
 
     public static void main(String[] args) {
@@ -56,7 +56,7 @@ public class Game15 {
         newGameButton.setFont(new Font("Arial", Font.PLAIN, 20));
         informationPanel.add(newGameButton);
 
-        ArrayList<JButton> myTiles = new ArrayList<>();
+        //ArrayList<JButton> myTiles = new ArrayList<>();
 
         JButton b1 = new JButton("1");
         b1.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -127,14 +127,6 @@ public class Game15 {
 
         Collections.shuffle(myTiles);
         myTiles.add(b16);
-
-        /*int i = 0;
-        for (int row = 0; row < 4; row++) {
-            for (int col = 0; col < 4; col++) {
-                gamePanel.add(myTiles.get(i));
-                i++;
-            }
-        }*/
 
         for(int i = 0; i < 16; i++){
             gamePanel.add(myTiles.get(i));
