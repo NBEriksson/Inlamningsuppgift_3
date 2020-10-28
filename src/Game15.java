@@ -16,23 +16,25 @@ import java.util.Collections;
 public class Game15 {
 
     private JFrame myGame15Frame = new JFrame("NINAS SPEL");
-    private JPanel gamePanel = new JPanel();
+
+    /*****************************************************/
+    public static JPanel gamePanel = new JPanel();////För att den nya "swappade" arrayen ska skrivas ut när man klickar på knapp
+    //private JPanel gamePanel = new JPanel();//För att "Nytt spel"-kappen ska funka, annars blir det bara fler rutor på samma JPanel
+    /*************************************************/
+
     private JPanel informationPanel = new JPanel();
     private JLabel gameOverLabel = new JLabel("Grattis, du vann!");
     private JButton newGameButton = new JButton("Nytt spel");
-    private Boolean gameOver = false;
-    static ArrayList<JButton> myTiles = new ArrayList<>();
+    //static Boolean gameOver = false;
+    public static ArrayList<JButton> myTiles = new ArrayList<>();
 
 
     public static void main(String[] args) {
-        Game15 my15Game = new Game15();
+       new Game15();
     }
 
     public Game15() {
-        myTiles.clear();
-        /*System.out.println("myTiles efter clear(): ");
-        for(JButton b : myTiles)
-            System.out.println(", " + b.getText());*/
+        myTiles.clear();//annars ligger gamla värden kvar
 
         myGame15Frame.setSize(416, 500);
         myGame15Frame.setLocation(250, 100);
@@ -46,22 +48,9 @@ public class Game15 {
         gamePanel.setLayout(new GridLayout(4, 4));
 
         informationPanel.setBackground(Color.WHITE);
-        /*if (gameOver) {
-            informationPanel.add(gameOverLabel);
-        }*/
-
-
-        /*class NewGameActionListener implements ActionListener {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("Nytt spel-knappen är tryckt");
-            }
-        }*/
-
         newGameButton.addActionListener(new Game15Controller.NewGameActionListener());
         newGameButton.setFont(new Font("Arial", Font.PLAIN, 20));
         informationPanel.add(newGameButton);
-
-        //ArrayList<JButton> myTiles = new ArrayList<>();
 
         JButton b1 = new JButton("1");
         b1.setFont(new Font("Arial", Font.PLAIN, 30));
@@ -142,17 +131,4 @@ public class Game15 {
         myGame15Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myGame15Frame.setVisible(true);
     }
-
-   /* @Override
-    public void actionPerformed(ActionEvent e) {
-
-    }*/
-
-    /*private class GameButtonActionListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-            JButton pressedJButton = new JButton();
-            pressedJButton = (JButton) e.getSource();
-            System.out.println("Siffran är: " + pressedJButton.getText());
-        }
-    }*/
 }
