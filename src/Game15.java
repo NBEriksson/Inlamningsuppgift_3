@@ -17,15 +17,20 @@ public class Game15 {
 
     private JFrame myGame15Frame = new JFrame("NINAS SPEL");
 
-    /*****************************************************/
+
+    /*************   START PÅ PROBLEM  ***************************************
+     * */
     public static JPanel gamePanel = new JPanel();////För att den nya "swappade" arrayen ska skrivas ut när man klickar på knapp
     //private JPanel gamePanel = new JPanel();//För att "Nytt spel"-kappen ska funka, annars blir det bara fler rutor på samma JPanel
-    /*************************************************/
+    /*
+    **************    SLUT PÅ PROBLEM    **********************************/
 
-    private JPanel informationPanel = new JPanel();
+
+    public static JPanel informationPanel = new JPanel();
+    //private JPanel informationPanel = new JPanel();
     private JLabel gameOverLabel = new JLabel("Grattis, du vann!");
     private JButton newGameButton = new JButton("Nytt spel");
-    //static Boolean gameOver = false;
+    private Boolean gameOver = false;
     public static ArrayList<JButton> myTiles = new ArrayList<>();
 
 
@@ -50,6 +55,9 @@ public class Game15 {
         informationPanel.setBackground(Color.WHITE);
         newGameButton.addActionListener(new Game15Controller.NewGameActionListener());
         newGameButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        if(gameOver){
+            informationPanel.add(gameOverLabel);
+        }
         informationPanel.add(newGameButton);
 
         JButton b1 = new JButton("1");
@@ -119,7 +127,7 @@ public class Game15 {
         myTiles.add(b14);
         myTiles.add(b15);
 
-        Collections.shuffle(myTiles);
+        //Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array
         myTiles.add(b16);
 
         for(int i = 0; i < 16; i++){

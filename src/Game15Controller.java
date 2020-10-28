@@ -14,13 +14,6 @@ import java.util.Collections;
 
 public class Game15Controller {
 
-    /*if (gameOver) {
-            informationPanel.add(gameOverLabel);
-       }*/
-
-    private int indexEmptyTile = 15;
-
-
     static class NewGameActionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             //System.out.println("Nytt spel-knappen är tryckt");
@@ -142,6 +135,12 @@ public class Game15Controller {
                 break;
         }
         swap(clickedIndex, indexToCheck);
+
+        if(isSolved()){
+            System.out.println("GAME OVER!");
+            System.out.println("GAME OVER!");
+            Game15.informationPanel.updateUI();
+        }
     }
 
 
@@ -155,7 +154,6 @@ public class Game15Controller {
                // System.out.println("emptyIndex: " + emptyIndex);
             }
         }
-
         Collections.swap(Game15.myTiles, clickedIndex, emptyIndex);
 
         for(int i = 0; i < 16; i++){
@@ -165,12 +163,11 @@ public class Game15Controller {
     }
 
 
-    private boolean isSolved() {
-        //System.out.println("Inne i isSolved()");
-        if (indexEmptyTile != 15) {
+    private static boolean isSolved() {
+        if ((Game15.myTiles.get(15).getText()) != "" ) {
             return false;
         } else {
-            for (int i = 15; i >= 0; i--) {
+            for (int i = 14; i >= 0; i--) {
                 if (Integer.parseInt(Game15.myTiles.get(i).getText()) != i + 1) {
                     return false;
                 }
@@ -180,9 +177,10 @@ public class Game15Controller {
     }
 
 
-    //HITTAT PÅ NÄTET
+
+    //HITTAT GRUNDEN PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU
     private static boolean isSolvable() {
-        //System.out.println("Inne i isSolvable()");
+        System.out.println("Inne i isSolvable()");
         int count = 0;
 
         for (int i = 0; i < 16; i++) {
