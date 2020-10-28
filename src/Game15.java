@@ -29,6 +29,11 @@ public class Game15 {
     }
 
     public Game15() {
+        myTiles.clear();
+        /*System.out.println("myTiles efter clear(): ");
+        for(JButton b : myTiles)
+            System.out.println(", " + b.getText());*/
+
         myGame15Frame.setSize(416, 500);
         myGame15Frame.setLocation(250, 100);
         myGame15Frame.setVisible(true);
