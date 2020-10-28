@@ -19,6 +19,10 @@ public class Game15Controller {
             Game15.gamePanel = new JPanel();
             Game15.informationPanel = new JPanel();
             new Game15();
+
+            if (isSolvable()) { //TEST
+                System.out.println("Pusslet går ej att lösa!");
+            }
         }
     }
 
@@ -175,7 +179,7 @@ public class Game15Controller {
 
     //HITTAT PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU
     private static boolean isSolvable() {
-        System.out.println("Inne i isSolvable()");
+        //
         int count = 0;
 
         for (int i = 0; i < 16; i++) {
