@@ -123,7 +123,7 @@ public class Game15 {
         myTiles.add(b14);
         myTiles.add(b15);
 
-        Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array på spelplanen
+        //Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array på spelplanen
         myTiles.add(b16);
 
         for (int i = 0; i < 16; i++) {

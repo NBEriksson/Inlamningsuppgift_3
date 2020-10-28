@@ -182,7 +182,8 @@ public class Game15Controller {
         //
         int count = 0;
 
-        for (int i = 0; i < 16; i++) {
+        //for (int i = 0; i < 16; i++) {
+            for (int i = 0; i < 16000; i++) {//SKA VARA !&; EJ 16000. Bara för att testa "merge"
             for (int j = 0; j < i; j++) {
                 if (Integer.parseInt(Game15.myTiles.get(j).getText()) > Integer.parseInt(Game15.myTiles.get(i).getText())) {
                     count++;
