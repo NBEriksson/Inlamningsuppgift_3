@@ -15,19 +15,9 @@ import java.util.Collections;
 public class Game15Controller {
 
     static class NewGameActionListener implements ActionListener {
-        /*public void actionPerformed(ActionEvent e) {
-            System.out.println("Nytt spel-knappen är tryckt");
-            new Game15();
-        }*/
-
-
-        //NINAS TEST
         public void actionPerformed(ActionEvent e) {
-            System.out.println("Nytt spel-knappen är tryckt");
-            //Game15.gamePanel.repaint();
-            //Game15.gamePanel.updateUI();
-            Game15.gamePanel.repaint();
-            //Game15.myGame15Frame.repaint();
+            Game15.gamePanel = new JPanel();
+            Game15.informationPanel = new JPanel();
             new Game15();
         }
     }
@@ -38,7 +28,6 @@ public class Game15Controller {
             JButton pressedJButton = new JButton();
             pressedJButton = (JButton) e.getSource();
             String text = pressedJButton.getText();
-            //System.out.println("text: " + text);
             if (!text.equals("")) {//om det inte är tom ruta
                 checkIndex(text);
             }
@@ -50,7 +39,7 @@ public class Game15Controller {
         int index;
         for (int i = 0; i < Game15.myTiles.size(); i++) {
             JButton b = Game15.myTiles.get(i);
-            if (b.getText().equals(text)) {//index i ArrayListen där rätt text finns
+            if (b.getText().equals(text)) {//index i ArrayListen där rätt text(siffra) finns
                 index = i;
                 swapTiles(index);
                 i = Game15.myTiles.size();
@@ -60,7 +49,6 @@ public class Game15Controller {
 
 
     private static void swapTiles(int clickedIndex) {
-
         ArrayList<Integer> indexToCheck = new ArrayList<Integer>();
 
         switch (clickedIndex) {
@@ -147,7 +135,7 @@ public class Game15Controller {
         }
         swap(clickedIndex, indexToCheck);
 
-        if(isSolved()){
+        if (isSolved()) {
             Game15.informationPanel.add(Game15.gameOverLabel);
             Game15.informationPanel.updateUI();
         }
@@ -155,18 +143,16 @@ public class Game15Controller {
 
 
     private static void swap(int clickedIndex, ArrayList<Integer> indexToCheck) {
-        //System.out.println("\nclickedIndex: " + clickedIndex);
         int emptyIndex = 0;
 
         for (Integer i : indexToCheck) {
             if (Game15.myTiles.get(i).getText().equals("")) {//om tom ruta
                 emptyIndex = i;
-               //System.out.println("emptyIndex: " + emptyIndex);
                 Collections.swap(Game15.myTiles, clickedIndex, emptyIndex);
             }
         }
 
-        for(int i = 0; i < 16; i++){
+        for (int i = 0; i < 16; i++) {
             Game15.gamePanel.add(Game15.myTiles.get(i));
         }
         Game15.gamePanel.updateUI();
@@ -174,7 +160,7 @@ public class Game15Controller {
 
 
     private static boolean isSolved() {
-        if ((Game15.myTiles.get(15).getText()) != "" ) {
+        if ((Game15.myTiles.get(15).getText()) != "") {
             return false;
         } else {
             for (int i = 14; i >= 0; i--) {
@@ -185,7 +171,6 @@ public class Game15Controller {
         }
         return true;
     }
-
 
 
     //HITTAT PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU

@@ -15,28 +15,25 @@ import java.util.Collections;
 
 public class Game15 {
 
-    //private JFrame myGame15Frame = new JFrame("NINAS SPEL");
-    public static JFrame myGame15Frame = new JFrame("NINAS SPEL");
+    private JFrame myGame15Frame = new JFrame("NINAS SPEL");
 
     /*************   START PÅ PROBLEM  ***************************************
      * */
     public static JPanel gamePanel = new JPanel();////För att den nya "swappade" arrayen ska skrivas ut när man klickar på knapp
     //private JPanel gamePanel = new JPanel();//För att "Nytt spel"-kappen ska funka, annars blir det bara fler rutor på samma JPanel
     /*
-    **************    SLUT PÅ PROBLEM    **********************************/
+     **************    SLUT PÅ PROBLEM    **********************************/
 
 
     public static JPanel informationPanel = new JPanel();
-    //private JPanel informationPanel = new JPanel();
     public static JLabel gameOverLabel = new JLabel("Grattis, du vann!");
-    //private JLabel gameOverLabel = new JLabel("Grattis, du vann!");
     private JButton newGameButton = new JButton("Nytt spel");
     private Boolean gameOver = false;
     public static ArrayList<JButton> myTiles = new ArrayList<>();
 
 
     public static void main(String[] args) {
-       new Game15();
+        new Game15();
     }
 
     public Game15() {
@@ -126,10 +123,10 @@ public class Game15 {
         myTiles.add(b14);
         myTiles.add(b15);
 
-        //Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array
+        Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array på spelplanen
         myTiles.add(b16);
 
-        for(int i = 0; i < 16; i++){
+        for (int i = 0; i < 16; i++) {
             gamePanel.add(myTiles.get(i));
         }
 
