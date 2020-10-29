@@ -14,12 +14,12 @@ import java.util.Collections;
 
 public class Game15 {
 
-    private JFrame myGame15Frame = new JFrame("NINAS SPEL");
+    private JFrame myGame15Frame = new JFrame();
     public static JPanel gamePanel = new JPanel();
     public static JPanel informationPanel = new JPanel();
     public static JLabel gameOverLabel = new JLabel("Grattis, du vann!");
     private JButton newGameButton = new JButton("Nytt spel");
-    private Boolean gameOver = false;
+
     public static ArrayList<JButton> myTiles = new ArrayList<>();
 
 
@@ -27,8 +27,9 @@ public class Game15 {
         new Game15();
     }
 
+
     public Game15() {
-        myTiles.clear();//annars ligger gamla värden kvar
+        myTiles.clear();//annars ligger gamla värden kvar från tidigare spelomgång
 
         myGame15Frame.setSize(416, 500);
         myGame15Frame.setLocation(250, 100);
@@ -114,7 +115,7 @@ public class Game15 {
         myTiles.add(b14);
         myTiles.add(b15);
 
-        //Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array på spelplanen
+        Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array på spelplanen
         myTiles.add(b16);
 
         for (int i = 0; i < 16; i++) {

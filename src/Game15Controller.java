@@ -36,12 +36,9 @@ public class Game15Controller {
 
 
     private static void checkIndex(String text) {
-        //int index;
         for (int i = 0; i < Game15.myTiles.size(); i++) {
             JButton b = Game15.myTiles.get(i);
-            if (b.getText().equals(text)) {//index i ArrayListen där rätt text(siffra) finns
-                //index = i;
-                //swapTiles(index);
+            if (b.getText().equals(text)) {//index i ArrayListen där tryckt siffra finns
                 swapTiles(i);
                 i = Game15.myTiles.size();//för att bryta loopen när rätt index hittats
             }
@@ -50,7 +47,7 @@ public class Game15Controller {
 
 
     private static void swapTiles(int clickedIndex) {
-        ArrayList<Integer> indexToCheck = new ArrayList<Integer>();
+        ArrayList<Integer> indexToCheck = new ArrayList<>();
 
         switch (clickedIndex) {
             case 0:
@@ -144,7 +141,7 @@ public class Game15Controller {
 
 
     private static void swap(int clickedIndex, ArrayList<Integer> indexToCheck) {
-        int emptyIndex = 0;
+        int emptyIndex;
 
         for (Integer i : indexToCheck) {
             if (Game15.myTiles.get(i).getText().equals("")) {//om tom ruta
@@ -152,7 +149,6 @@ public class Game15Controller {
                 Collections.swap(Game15.myTiles, clickedIndex, emptyIndex);
             }
         }
-
         for (int i = 0; i < 16; i++) {
             Game15.gamePanel.add(Game15.myTiles.get(i));
         }
@@ -161,7 +157,7 @@ public class Game15Controller {
 
 
     private static boolean isSolved() {
-        if ((Game15.myTiles.get(15).getText()) != "") {
+        if (!Game15.myTiles.get(15).getText().equals("")) {//om inte sista rutan är blank
             return false;
         } else {
             for (int i = 14; i >= 0; i--) {
@@ -175,8 +171,9 @@ public class Game15Controller {
 
 
 
-    /*  HITTAT PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU  ********************************************/
 
+    /*   HITTAT PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU   ******************************************/
+    /*********************************************************************************************/
     /*********************************************************************************************/
     private static boolean isSolvable() {
         System.out.println("Inne i isSolvable()");
