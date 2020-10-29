@@ -3,7 +3,6 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 /**
  * Created by Nina Eriksson
  * Date: 2020-10-22
@@ -16,15 +15,7 @@ import java.util.Collections;
 public class Game15 {
 
     private JFrame myGame15Frame = new JFrame("NINAS SPEL");
-
-    /*************   START PÅ PROBLEM  ***************************************
-     * */
-    public static JPanel gamePanel = new JPanel();////För att den nya "swappade" arrayen ska skrivas ut när man klickar på knapp
-    //private JPanel gamePanel = new JPanel();//För att "Nytt spel"-kappen ska funka, annars blir det bara fler rutor på samma JPanel
-    /*
-     **************    SLUT PÅ PROBLEM    **********************************/
-
-
+    public static JPanel gamePanel = new JPanel();
     public static JPanel informationPanel = new JPanel();
     public static JLabel gameOverLabel = new JLabel("Grattis, du vann!");
     private JButton newGameButton = new JButton("Nytt spel");
@@ -42,7 +33,7 @@ public class Game15 {
         myGame15Frame.setSize(416, 500);
         myGame15Frame.setLocation(250, 100);
         myGame15Frame.setVisible(true);
-        myGame15Frame.setTitle("NINAS SPEL");
+        myGame15Frame.setTitle("INLÄMNINGSUPPGIFT 3");
         myGame15Frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         myGame15Frame.setResizable(true);
 
@@ -123,7 +114,7 @@ public class Game15 {
         myTiles.add(b14);
         myTiles.add(b15);
 
-        Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array på spelplanen
+        //Collections.shuffle(myTiles);//Koppla bort detta för att få ut sorterad array på spelplanen
         myTiles.add(b16);
 
         for (int i = 0; i < 16; i++) {

@@ -28,7 +28,7 @@ public class Game15Controller {
             JButton pressedJButton = new JButton();
             pressedJButton = (JButton) e.getSource();
             String text = pressedJButton.getText();
-            if (!text.equals("")) {//om det inte är tom ruta
+            if (!text.equals("")) {//om det inte är tom ruta utan står ett nummer på tryckt knapp
                 checkIndex(text);
             }
         }
@@ -36,13 +36,14 @@ public class Game15Controller {
 
 
     private static void checkIndex(String text) {
-        int index;
+        //int index;
         for (int i = 0; i < Game15.myTiles.size(); i++) {
             JButton b = Game15.myTiles.get(i);
             if (b.getText().equals(text)) {//index i ArrayListen där rätt text(siffra) finns
-                index = i;
-                swapTiles(index);
-                i = Game15.myTiles.size();
+                //index = i;
+                //swapTiles(index);
+                swapTiles(i);
+                i = Game15.myTiles.size();//för att bryta loopen när rätt index hittats
             }
         }
     }
@@ -173,7 +174,10 @@ public class Game15Controller {
     }
 
 
-    //HITTAT PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU
+
+    /*  HITTAT PÅ NÄTET, EJ INKOPPLAT I MIN KOD ÄNNU  ********************************************/
+
+    /*********************************************************************************************/
     private static boolean isSolvable() {
         System.out.println("Inne i isSolvable()");
         int count = 0;
